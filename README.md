@@ -19,11 +19,16 @@ The hardest part of the project will be properly implementing the hand tracking 
 ## Gifs
 <h1 align="center">
 
-![Punching bag test](https://iili.io/EGbxz7.md.gif)
-###
-![Grabbing items test](https://iili.io/EGbnbS.md.gif)
+![Punching bag test](https://media.discordapp.net/attachments/951211099389304904/951211175314616330/ezgif.com-gif-maker_6.gif)
 
 </h1>
+
+<h2 align="center">
+
+![Grabbing items test](https://media.discordapp.net/attachments/951211099389304904/951211176505782342/ezgif.com-gif-maker_5.gif)
+
+</h2>
+
 
 ## Sources
 
