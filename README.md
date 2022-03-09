@@ -19,13 +19,13 @@ The hardest part of the project will be properly implementing the hand tracking 
 ## Gifs
 <h1 align="center">
 
-![Punching bag test](https://github.com/DanielNijkamp/Special_IO/Special_IO/Recordings/boxing_test.gif)
+![Punching bag test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/boxing_test.gif)
 
 </h1>
 
 <h2 align="center">
 
-![Grabbing items test](https://github.com/DanielNijkamp/Special_IO/Special_IO/Recordings/grab_test.gif)
+![Grabbing items test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/grab_test.gif)
 
 </h2>
 
