@@ -34,6 +34,7 @@ The hardest part of the project will be properly implementing the hand tracking 
 
 
 [Leap motion in-depth testing](https://youtu.be/ZK5FRPwIWVE)
+
 [Leap motion Unity Plugin](https://developer.leapmotion.com/unity)
 
 
