@@ -29,6 +29,11 @@ The hardest part of the project will be properly implementing the hand tracking 
 
 </h2>
 
+<h1 align="center">
+
+![Punching bag test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/testgif3.gif)
+
+</h1>
 
 ## Sources
 
