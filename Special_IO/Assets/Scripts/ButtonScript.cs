@@ -20,6 +20,7 @@ public class ButtonScript : MonoBehaviour
     {
         Debug.Log("Pressed");
         button_renderer.material.color = Pressedcolor;
+        FindObjectOfType<SoundManagerScript>().PlayButtonSFX();
         
     }
     public void OnRelease()
