@@ -29,6 +29,11 @@ The hardest part of the project will be properly implementing the hand tracking 
 
 </h2>
 
+<h1 align="center">
+
+![Punching bag test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/testgif3.gif)
+
+</h1>
 
 ## Sources
 
@@ -37,6 +42,9 @@ The hardest part of the project will be properly implementing the hand tracking 
 
 [Leap motion Unity Plugin](https://developer.leapmotion.com/unity)
 
+[Leap motion tracking API](https://docs.ultraleap.com/tracking-api/)
+
+[Trello Board](https://trello.com/b/FPIkMKX7/specialio)
 
 [Leap motion in Unity reddit thread](https://www.reddit.com/r/leapmotion/comments/4dx68o/almost_seamlessly_picking_up_objects/)
 
