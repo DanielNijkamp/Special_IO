@@ -9,10 +9,24 @@ public class UI_Script : MonoBehaviour
     public Leap.Unity.Interaction.InteractionSlider UI_Slider;
     public GameObject Desktop_rig;
     private bool ButtonPressed;
+    public bool IsShooting;
+
+    public GameObject ShootButton;
+
+    public LayerMask layer;
+    public GameObject Target;
+
+    Vector3[] positions = new Vector3[2] ;
+    public LineRenderer laserLineRenderer;
+
+    public float buttonZ_Offset;
+    public float buttonX_Offset;
+    public float buttonY_Offset;
 
     private void Start()
     {
         ButtonPressed = false;
+        IsShooting = false;
     }
     void Update()
     {
@@ -24,34 +38,61 @@ public class UI_Script : MonoBehaviour
         var hand = Hands.Right;
         if (hand != null)
         {
+            if (ShootButton != null)
+            {
+                ShootButton.transform.position = hand.PalmPosition.ToVector3() - new Vector3(buttonX_Offset, buttonY_Offset, buttonZ_Offset);
+                //ShootButton.transform.position = hand.PalmPosition.ToVector3();
+                //ShootButton.transform.rotation = Quaternion.FromToRotation(Vector3.up, hand.PalmNormal.ToVector3());
+            }
             if (ButtonPressed)
             {
+                RaycastHit hit;
+                if (Physics.Raycast(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), out hit, 50))
+                {
+                    positions[0] = hand.Fingers[1].TipPosition.ToVector3();
+                    positions[1] = hit.point;
+                    laserLineRenderer.SetPositions(positions);
+                }   
                 Debug.DrawRay(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), Color.red);
-                Debug.Log(hand.Fingers[1].TipPosition.ToVector3());
+                
             }
-            
+            if (IsShooting)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), out hit, 50, layer))
+                {
+                    Target.transform.position = hit.point;
+                }
+            }   
         }
-    }
-    
-    void Activate_Finger_Point()
-    {
-        Debug.Log("Activated");
-    }
-    void Deactivate_Finger_Point()
-    {
-        Debug.Log("Deactivated");
     }
     public void DetectButtonInput()
     {
         if (!ButtonPressed)
         {
-            Activate_Finger_Point();
             ButtonPressed = true;
+            ShootButton.SetActive(true);
+            Target.SetActive(true);
+            laserLineRenderer.gameObject.SetActive(true);
         }
         else if (ButtonPressed)
         {
-            Deactivate_Finger_Point();
+            
             ButtonPressed = false;
+            ShootButton.SetActive(false);
+            Target.SetActive(false);
+            laserLineRenderer.gameObject.SetActive(false);
         }
     }
+    public void Shoot()
+    {
+        StartCoroutine(ShootBool());
+    }
+    IEnumerator ShootBool()
+    {
+        IsShooting = true;
+        yield return new WaitForSecondsRealtime(0.01f);
+        IsShooting = false;
+    }
+    
 }
