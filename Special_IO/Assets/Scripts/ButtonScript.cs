@@ -16,11 +16,11 @@ public class ButtonScript : MonoBehaviour
         button_renderer.material.color = NormalColor;
     }
 
-    public void OnPress()
+    public void OnPress(int pos)
     {
         Debug.Log("Pressed");
         button_renderer.material.color = Pressedcolor;
-        FindObjectOfType<SoundManagerScript>().PlayButtonSFX();
+        FindObjectOfType<SoundManagerScript>().PlayButtonSFX(pos);
         
     }
     public void OnRelease()

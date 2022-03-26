@@ -41,9 +41,9 @@ public class SoundManagerScript : MonoBehaviour
         bgmSource.volume = newVolume;
         BGMVolume = newVolume;
     }
-    public void PlayButtonSFX()
+    public void PlayButtonSFX(int position)
     {
-        sfxSource.clip = SFX[Random.Range(0, SFX.Length)];
+        sfxSource.clip = SFX[position];
         sfxSource.volume = SFXVolume;
         sfxSource.PlayOneShot(sfxSource.clip);
     }

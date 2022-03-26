@@ -12,6 +12,7 @@ public class UI_Script : MonoBehaviour
     public bool IsShooting;
 
     public GameObject ShootButton;
+    public Camera cam2;
 
     public LayerMask layer;
     public GameObject Target;
@@ -40,7 +41,7 @@ public class UI_Script : MonoBehaviour
         {
             if (ShootButton != null)
             {
-                ShootButton.transform.position = hand.PalmPosition.ToVector3() - new Vector3(buttonX_Offset, buttonY_Offset, buttonZ_Offset);
+                //ShootButton.transform.position = hand.PalmPosition.ToVector3() - new Vector3(buttonX_Offset, buttonY_Offset, buttonZ_Offset);
                 //ShootButton.transform.position = hand.PalmPosition.ToVector3();
                 //ShootButton.transform.rotation = Quaternion.FromToRotation(Vector3.up, hand.PalmNormal.ToVector3());
             }
@@ -55,13 +56,21 @@ public class UI_Script : MonoBehaviour
                 }   
                 Debug.DrawRay(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), Color.red);
                 
+              
+
             }
             if (IsShooting)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), out hit, 50, layer))
+                if (Physics.Raycast(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), out hit, Mathf.Infinity, layer))
                 {
-                    Target.transform.position = hit.point;
+                    var localPoint = hit.textureCoord;
+                    Ray portalRay = cam2.ScreenPointToRay(new Vector2(localPoint.x * cam2.pixelWidth, localPoint.y * cam2.pixelHeight));
+                    RaycastHit _hit;
+                    if (Physics.Raycast(portalRay.origin, portalRay.direction, out _hit, 100))
+                    {
+                        Target.transform.position = _hit.point;
+                    }
                 }
             }   
         }
@@ -91,7 +100,7 @@ public class UI_Script : MonoBehaviour
     IEnumerator ShootBool()
     {
         IsShooting = true;
-        yield return new WaitForSecondsRealtime(0.01f);
+        yield return new WaitForSecondsRealtime(0.05f);
         IsShooting = false;
     }
     
