@@ -54,10 +54,9 @@ public class UI_Script : MonoBehaviour
                     positions[1] = hit.point;
                     laserLineRenderer.SetPositions(positions);
                 }   
-                Debug.DrawRay(hand.Fingers[1].TipPosition.ToVector3(), hand.Fingers[1].Direction.ToVector3(), Color.red);
                 
               
-
+                
             }
             if (IsShooting)
             {
@@ -79,6 +78,7 @@ public class UI_Script : MonoBehaviour
     {
         if (!ButtonPressed)
         {
+            FindObjectOfType<PC_Manager>().Activate_Game();
             ButtonPressed = true;
             ShootButton.SetActive(true);
             Target.SetActive(true);
@@ -86,7 +86,7 @@ public class UI_Script : MonoBehaviour
         }
         else if (ButtonPressed)
         {
-            
+            FindObjectOfType<PC_Manager>().Deactivate_Game();
             ButtonPressed = false;
             ShootButton.SetActive(false);
             Target.SetActive(false);
