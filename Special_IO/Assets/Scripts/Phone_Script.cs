@@ -7,12 +7,12 @@ using Leap.Unity.Interaction;
 
 public class Phone_Script : MonoBehaviour
 {
-    bool isplaying;
+    public bool isplaying;
     Vector3 startingpos;
     Quaternion startingrot;
     public GameObject phone;
     private InteractionBehaviour behaviour;
-    SoundManagerScript soundmanager;
+    public SoundManagerScript soundmanager;
     public bool nearbase;
     public bool isgrasped;
 
@@ -39,7 +39,7 @@ public class Phone_Script : MonoBehaviour
         }
         else
         {
-            soundmanager.phonesource.volume = 25f;
+            soundmanager.phonesource.volume = 10f;
         }
         
         
@@ -59,10 +59,9 @@ public class Phone_Script : MonoBehaviour
     }
     public void WaitForPhone()
     {
-        if (!nearbase && !behaviour.isGrasped)
+        if (nearbase && !behaviour.isGrasped)
         {
-            transform.position = startingpos;
-            transform.rotation = startingrot;
+            ResetPosition();
             if (isplaying)
             {
                 soundmanager.HangUp();
@@ -72,5 +71,10 @@ public class Phone_Script : MonoBehaviour
         }
         
         
+    }
+    public void ResetPosition()
+    {
+        transform.position = startingpos;
+        transform.rotation = startingrot;
     }
 }

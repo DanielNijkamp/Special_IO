@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hand
   - Phone
+  - BoundingBox
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Screen
-  - Collision
-  - Trigger
+  - NormalObjects
+  - 
   - 
   - 
   - 

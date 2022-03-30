@@ -15,7 +15,7 @@ public class UI_Script : MonoBehaviour
     public Camera cam2;
 
     public LayerMask layer;
-    public GameObject Target;
+    public GameObject TargetEffect;
 
     Vector3[] positions = new Vector3[2] ;
     public LineRenderer laserLineRenderer;
@@ -68,7 +68,8 @@ public class UI_Script : MonoBehaviour
                     RaycastHit _hit;
                     if (Physics.Raycast(portalRay.origin, portalRay.direction, out _hit, 100))
                     {
-                        Target.transform.position = _hit.point;
+                        StartCoroutine(SpawnEffect(_hit));
+                        
                     }
                 }
             }   
@@ -81,7 +82,6 @@ public class UI_Script : MonoBehaviour
             FindObjectOfType<PC_Manager>().Activate_Game();
             ButtonPressed = true;
             ShootButton.SetActive(true);
-            Target.SetActive(true);
             laserLineRenderer.gameObject.SetActive(true);
         }
         else if (ButtonPressed)
@@ -89,7 +89,6 @@ public class UI_Script : MonoBehaviour
             FindObjectOfType<PC_Manager>().Deactivate_Game();
             ButtonPressed = false;
             ShootButton.SetActive(false);
-            Target.SetActive(false);
             laserLineRenderer.gameObject.SetActive(false);
         }
     }
@@ -100,8 +99,15 @@ public class UI_Script : MonoBehaviour
     IEnumerator ShootBool()
     {
         IsShooting = true;
-        yield return new WaitForSecondsRealtime(0.05f);
+        yield return new WaitForSeconds(0.0001f);
         IsShooting = false;
+    }
+    IEnumerator SpawnEffect(RaycastHit _hit)
+    {
+        GameObject new_effect = Instantiate(TargetEffect);
+        new_effect.transform.position = _hit.point;
+        yield return new WaitForSecondsRealtime(0.25f);
+        Destroy(new_effect);
     }
     
 }

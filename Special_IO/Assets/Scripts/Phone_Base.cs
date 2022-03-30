@@ -8,14 +8,14 @@ public class Phone_Base : MonoBehaviour
     {
         if (other.CompareTag("Phone"))
         {
-            other.GetComponent<Phone_Script>().nearbase = false;
+            other.GetComponent<Phone_Script>().nearbase = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Phone"))
         {
-            other.GetComponent<Phone_Script>().nearbase = true;
+            other.GetComponent<Phone_Script>().nearbase = false;
         }
     }
 }
