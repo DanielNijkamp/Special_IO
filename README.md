@@ -19,19 +19,25 @@ The hardest part of the project will be properly implementing the hand tracking 
 ## Gifs
 <h1 align="center">
 
-![Punching bag test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/boxing_test.gif)
+![Interaction](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Gifs/Interaction.gif)
 
 </h1>
 
 <h2 align="center">
 
-![Grabbing items test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/grab_test.gif)
+![UI](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Gifs/UI.gif)
 
 </h2>
 
 <h1 align="center">
 
-![Punching bag test](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Recordings/testgif3.gif)
+![lazergame](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Gifs/lazergame.gif)
+
+</h1>
+
+<h1 align="center">
+
+![Phone](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Gifs/phone.gif)
 
 </h1>
 
