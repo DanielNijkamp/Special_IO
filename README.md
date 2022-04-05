@@ -12,9 +12,15 @@ I want the game to be somewhere between a demo to a game and a [Leap Motion demo
 The game will be made using the Unity game engine and a Leap motion controller, to implement the tracking of the controller. I will also be using a Unity plugin so the movements of the tracker can be used inside of Unity.
 
 
-## Obstacles
+## Obstacles/Problems
 
 The hardest part of the project will be properly implementing the hand tracking into Unity and make sure everything works smoothly and without problems. from the scope and ideas that I have the first working product should be done about 2-3 weeks. and after that i will work to improve the gameplay aspects and if any problems should arise fix them.
+
+some problems that arose during development were:
+Working with the Internal Leapmotion API to get finger positions
+Raycasting through a render texture
+Unity collisions
+make sure that the lazergame UI button works properly when pressed multiple times
 
 ## Gifs
 <h1 align="center">
