@@ -29,7 +29,7 @@ Raycasting through a render texture
 Unity collisions
 make sure that the lazergame UI button works properly when pressed multiple times
 
-### Screenshots
+## Screenshots
 
 <h1 align="center">
 
