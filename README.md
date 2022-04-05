@@ -23,14 +23,16 @@ Unity collisions
 make sure that the lazergame UI button works properly when pressed multiple times
 
 ### Screenshots
+
 <h1 align="center">
 
-![Interaction](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/Raycast.jpg)
+![Raycast](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/Raycast.jpg)
 
 </h1>
+
 <h1 align="center">
 
-![Interaction](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/PhoneGizmos.png)
+![Phone](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/PhoneGizmos.png)
 
 
 ## Gifs
