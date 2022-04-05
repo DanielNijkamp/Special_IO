@@ -32,7 +32,7 @@ make sure that the lazergame UI button works properly when pressed multiple time
 
 <h1 align="center">
 
-![Phone](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/PhoneGizmos.png)
+![Phone](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/PhoneGizmos.PNG)
 
 </h1>
 
