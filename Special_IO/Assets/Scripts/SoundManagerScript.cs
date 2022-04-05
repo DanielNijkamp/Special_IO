@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SoundManagerScript : MonoBehaviour
 {
     public AudioClip[] SFX;
+    public AudioClip[] BGM;
 
     public float BGMVolume;
     public float SFXVolume;
@@ -16,7 +17,10 @@ public class SoundManagerScript : MonoBehaviour
     public AudioSource bgmSource;
     public AudioSource phonesource;
 
-
+    private void Start()
+    {
+        StartCoroutine(StartBGMMusic());
+    }
 
     void Update()
     {
@@ -70,5 +74,13 @@ public class SoundManagerScript : MonoBehaviour
         phonesource.clip = SFX[b];
         phonesource.PlayOneShot(phonesource.clip);
     }
-
+    public IEnumerator StartBGMMusic()
+    {
+        bgmSource.PlayOneShot(BGM[0]);
+        while (true)
+        {
+            bgmSource.PlayOneShot(BGM[1]);
+            yield return new WaitForSecondsRealtime(BGM[1].length);
+        }
+    }
 }

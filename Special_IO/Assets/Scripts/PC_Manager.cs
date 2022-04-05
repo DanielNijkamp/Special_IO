@@ -27,7 +27,6 @@ public class PC_Manager : MonoBehaviour
     {
         if (TargetsSpawned && !GameEnded && targets.Count.Equals(0))
         {
-                Debug.Log("All enemies have been eliminated");
                 FindObjectOfType<SoundManagerScript>().PlaySFX(5);
                 GameOverScreen.SetActive(true);
                 GameEnded = true;
@@ -67,7 +66,6 @@ public class PC_Manager : MonoBehaviour
         normalscreen.SetActive(true);
         gamescreen.SetActive(false);
         GameOverScreen.SetActive(false);
-        Spawning = false;
         TargetsSpawned = false;
         GameEnded = false;
         DestroyTargets();

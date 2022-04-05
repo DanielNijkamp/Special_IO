@@ -132,5 +132,13 @@ public class UI_Script : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.25f);
         Destroy(new_effect);
     }
+    public void ResetObjects()
+    {
+        ResetScript[] resetScripts = FindObjectsOfType<ResetScript>();
+        foreach (ResetScript script in resetScripts)
+        {
+            script.This_Reset_Position();
+        }
+    }
     
 }
