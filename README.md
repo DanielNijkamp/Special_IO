@@ -34,6 +34,7 @@ make sure that the lazergame UI button works properly when pressed multiple time
 
 ![Phone](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/PhoneGizmos.png)
 
+</h1>
 
 ## Gifs
 <h1 align="center">
