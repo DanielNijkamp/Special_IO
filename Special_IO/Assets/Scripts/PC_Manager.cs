@@ -8,31 +8,87 @@ public class PC_Manager : MonoBehaviour
     public GameObject normalscreen;
     public GameObject gamescreen;
     public List<GameObject> targets;
-    // Start is called before the first frame update
 
+    public GameObject GameOverScreen;
+
+    public float Target_Amount;
+    public float Spawn_Cooldown;
+
+    private bool TargetsSpawned;
+    public bool GameEnded;
+    public bool Spawning;
+    private void Start()
+    {
+        TargetsSpawned = false;
+        GameEnded = false;
+    }
+
+    private void Update()
+    {
+        if (TargetsSpawned && !GameEnded && targets.Count.Equals(0))
+        {
+                Debug.Log("All enemies have been eliminated");
+                FindObjectOfType<SoundManagerScript>().PlaySFX(5);
+                GameOverScreen.SetActive(true);
+                GameEnded = true;
+        }
+    }
     IEnumerator SpawnTargets()
     {
-        for (int i = 0; i < 3; i++)
+        if (Spawning)
         {
-            yield return new WaitForSecondsRealtime(1);
-            Debug.Log($"Spawned {i}");
-            GameObject newtarget = Instantiate(Target);
-            targets.Add(newtarget);
+            for (int i = 0; i < Target_Amount; i++)
+            {
+                yield return new WaitForSecondsRealtime(Spawn_Cooldown);
+                if (Spawning && gamescreen.activeInHierarchy)
+                {
+                    GameObject newtarget = Instantiate(Target);
+                    targets.Add(newtarget);
+                }
+            }
+            Spawning = false;
         }
+        if (!Spawning)
+        {
+            TargetsSpawned = true;
+        }
+        
+        
     }
     public void Activate_Game()
     {
         normalscreen.SetActive(false);
         gamescreen.SetActive(true);
+        Spawning = true;
         StartCoroutine(SpawnTargets());
     }
     public void Deactivate_Game()
     {
         normalscreen.SetActive(true);
         gamescreen.SetActive(false);
-        foreach (GameObject target in targets)
+        GameOverScreen.SetActive(false);
+        Spawning = false;
+        TargetsSpawned = false;
+        GameEnded = false;
+        DestroyTargets();
+    }
+    public void RestartGame()
+    {
+        GameOverScreen.SetActive(false);
+        TargetsSpawned = false;
+        GameEnded = false;
+        Spawning = true;
+        StartCoroutine(SpawnTargets());
+    }
+    public void DestroyTargets()
+    {
+        targets.Clear();
+        TargetScript[] targets_to_destroy = FindObjectsOfType<TargetScript>();
+        foreach (TargetScript target in targets_to_destroy)
         {
-            Destroy(target);
+            target.DestroySelf();
         }
+       
     }
 }
+

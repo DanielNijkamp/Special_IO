@@ -18,14 +18,17 @@ public class UI_Script : MonoBehaviour
     public GameObject TargetEffect;
 
     Vector3[] positions = new Vector3[2] ;
-    public LineRenderer laserLineRenderer;
+    public LineRenderer laser;
 
     public float buttonZ_Offset;
     public float buttonX_Offset;
     public float buttonY_Offset;
 
+    public PC_Manager pc_manager;
+
     private void Start()
     {
+        pc_manager = FindObjectOfType<PC_Manager>();
         ButtonPressed = false;
         IsShooting = false;
     }
@@ -52,7 +55,7 @@ public class UI_Script : MonoBehaviour
                 {
                     positions[0] = hand.Fingers[1].TipPosition.ToVector3();
                     positions[1] = hit.point;
-                    laserLineRenderer.SetPositions(positions);
+                    laser.SetPositions(positions);
                 }   
                 
               
@@ -68,7 +71,27 @@ public class UI_Script : MonoBehaviour
                     RaycastHit _hit;
                     if (Physics.Raycast(portalRay.origin, portalRay.direction, out _hit, 100))
                     {
-                        StartCoroutine(SpawnEffect(_hit));
+                        if (!pc_manager.GameEnded)
+                        {
+                            StartCoroutine(SpawnEffect(_hit));
+                            if (_hit.transform.gameObject.CompareTag("Target"))
+                            {
+                                pc_manager.targets.Remove(_hit.transform.gameObject);
+                                Destroy(_hit.transform.gameObject);
+                            }
+                        }
+                        else
+                        {
+                            if (_hit.transform.gameObject.CompareTag("PlayButton"))
+                            {
+                                pc_manager.RestartGame();
+                            }
+                            else if (_hit.transform.gameObject.CompareTag("QuitButton"))
+                            {
+                                pc_manager.Deactivate_Game();
+                                laser.gameObject.SetActive(false);
+                            }
+                        }
                         
                     }
                 }
@@ -79,17 +102,17 @@ public class UI_Script : MonoBehaviour
     {
         if (!ButtonPressed)
         {
-            FindObjectOfType<PC_Manager>().Activate_Game();
-            ButtonPressed = true;
+            pc_manager.Activate_Game(); 
             ShootButton.SetActive(true);
-            laserLineRenderer.gameObject.SetActive(true);
+            laser.gameObject.SetActive(true);
+            ButtonPressed = true;
         }
         else if (ButtonPressed)
         {
-            FindObjectOfType<PC_Manager>().Deactivate_Game();
-            ButtonPressed = false;
+            pc_manager.Deactivate_Game();
             ShootButton.SetActive(false);
-            laserLineRenderer.gameObject.SetActive(false);
+            laser.gameObject.SetActive(false);
+            ButtonPressed = false;
         }
     }
     public void Shoot()
