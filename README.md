@@ -6,7 +6,9 @@ Special IO is 3D interactive Unity game that utilizes the [Leap Motion controlle
 
 The idea to make this game comes from some of my favourite games:
 [Calm down Stalin](https://store.steampowered.com/app/502940/Calm_Down_Stalin/)
+
 [Rick And Morty VR](https://store.steampowered.com/app/469610/Rick_and_Morty_Virtual_Rickality/)
+
 [Job Simulator](https://store.steampowered.com/app/448280/Job_Simulator/)
 
 ## Scope
