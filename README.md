@@ -1,6 +1,13 @@
 # Special Input & Output
 
-Special IO is a project where I try to create a game like [Calm down Stalin](https://store.steampowered.com/app/502940/Calm_Down_Stalin/) but use a [Leap Motion controller](https://www.ultraleap.com/product/leap-motion-controller/) as a input device instead of VR or keyboard controls.
+Special IO is 3D interactive Unity game that utilizes the [Leap Motion controller](https://www.ultraleap.com/product/leap-motion-controller/) as a input device. See [Screenshots](#Screenshots) and [Gifs](#Gifs) to see some of the gameplay elements included in the game. If you are interested to try this out for yourself the only thing you need is a Leap Motion controller
+
+### Idea/inspiration
+
+The idea to make this game comes from some of my favourite games:
+[Calm down Stalin](https://store.steampowered.com/app/502940/Calm_Down_Stalin/)
+[Rick And Morty VR](https://store.steampowered.com/app/469610/Rick_and_Morty_Virtual_Rickality/)
+[Job Simulator](https://store.steampowered.com/app/448280/Job_Simulator/)
 
 ## Scope
 
