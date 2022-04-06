@@ -1,6 +1,16 @@
 # Special Input & Output
 
-Special IO is a project where I try to create a game like [Calm down Stalin](https://store.steampowered.com/app/502940/Calm_Down_Stalin/) but use a [Leap Motion controller](https://www.ultraleap.com/product/leap-motion-controller/) as a input device instead of VR or keyboard controls.
+Special IO is 3D interactive Unity game that utilizes the [Leap Motion controller](https://www.ultraleap.com/product/leap-motion-controller/) as a input device. See [Screenshots](#Screenshots) and [Gifs](#Gifs) to see some of the gameplay elements included in the game. If you are interested to try this out for yourself the only thing you need is a Leap Motion controller
+
+### Idea/inspiration
+
+The idea to make this game comes from some of my favourite games:
+
+[Calm down Stalin](https://store.steampowered.com/app/502940/Calm_Down_Stalin/)
+
+[Rick And Morty VR](https://store.steampowered.com/app/469610/Rick_and_Morty_Virtual_Rickality/)
+
+[Job Simulator](https://store.steampowered.com/app/448280/Job_Simulator/)
 
 ## Scope
 
@@ -21,6 +31,20 @@ Working with the Internal Leapmotion API to get finger positions
 Raycasting through a render texture
 Unity collisions
 make sure that the lazergame UI button works properly when pressed multiple times
+
+## Screenshots
+
+<h1 align="center">
+
+![Raycast](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/Raycast.jpg)
+
+</h1>
+
+<h1 align="center">
+
+![Phone](https://github.com/DanielNijkamp/Special_IO/blob/master/Special_IO/Screenshots/PhoneGizmos.PNG)
+
+</h1>
 
 ## Gifs
 <h1 align="center">
@@ -57,8 +81,3 @@ make sure that the lazergame UI button works properly when pressed multiple time
 [Leap motion tracking API](https://docs.ultraleap.com/tracking-api/)
 
 [Trello Board](https://trello.com/b/FPIkMKX7/specialio)
-
-[Leap motion in Unity reddit thread](https://www.reddit.com/r/leapmotion/comments/4dx68o/almost_seamlessly_picking_up_objects/)
-
-## Addendum:
-Although the idea of the game and using the leap motion controller as a input device is definitive, the contents of this readme and other documentation about the Special IO project are **not definitive**. meaning that some parts are bound to change in the course of development.
